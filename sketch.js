@@ -45,6 +45,9 @@ function draw() {
 
 	Engine.update(engine)
 
+    star.x= starBody.position.x;
+    star.y= starBody.position.y;
+
   background(bgImg);
   fairy.velocityX=0
   fairy.velocityY=0
@@ -54,11 +57,11 @@ function draw() {
   }else if (keyDown(LEFT_ARROW)){
 	fairy.velocityX=-6
   }else if (keyDown(DOWN_ARROW)){
-	star.velocityY=3
+	Matter.Body.setStatic(starBody,false);
   }
 
-  if(star.y>470){
-	 star.velocityY=0
+  if(star.y>455){
+	Matter.Body.setStatic(starBody,true);
   }
 
   drawSprites();
